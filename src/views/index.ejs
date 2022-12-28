@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="./static/css/index.css">
+<script src="/static/javascript/assets/city.js"></script>
+<script src="/static/javascript/assets/country.js"></script>
+<script src="/static/javascript/index.js"></script>
+<script src="/static/javascript/datalist.js"></script>
+<div class="container">
+  <div class="selector">
+    <label for="country">Choose your Country:</label>
+    <!-- <input list="countries" name="country" id="country"> -->
+    <select id="countries" class="select-box">
+      <option disabled selected value> -- select an option -- </option>
+      <% data.countries.forEach(function(country){ %>
+        <option value="<%= country.isoCode %>"> <%= country.name %> </option>
+      <%})%>
+    </select>
+    <input type="hidden" name="answer" id="country-hidden">
+
+    <label for="city">Choose your City:</label>
+    <select id="cities" class="select-box"></select>
+    <button class="btn btn-primary" id="fetchWeatherButton" >Get Weather</button>
+  </div>
+  <div class="inner-container" id="forecast">
+    <div class="card">
+      <div class="card-item bold text-center f-larger" >Select a city to continue</div>
+    </div>
+  </div>
+</div>
